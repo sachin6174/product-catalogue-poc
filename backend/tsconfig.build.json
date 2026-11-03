@@ -1,0 +1,5 @@
+{
+  // Production build: same settings, minus tests and test helpers.
+  "extends": "./tsconfig.json",
+  "exclude": ["src/**/*.test.ts", "src/testing"]
+}
