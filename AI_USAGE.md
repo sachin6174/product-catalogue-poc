@@ -52,8 +52,8 @@ I agreed this plan with the agent before any code was written:
 
 | Activity | Time |
 | --- | --- |
-| Planning (reading the brief, deciding stack and assumptions) | _fill in_ |
-| Building | _fill in_ |
-| Testing (automated + manual in the browser) | _fill in_ |
-| Reviewing code and writing docs | _fill in_ |
-| **Total** | _fill in_ |
+| Planning (reading the brief, deciding stack and assumptions) | 30 min |
+| Building | 1 h 30 min |
+| Testing (automated, manual in the browser, and a full `docker compose up` run with a real email into Mailpit) | 30 min |
+| Reviewing code and writing docs | 30 min |
+| **Total** | **about 3 hours** |
