@@ -1,0 +1,26 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80" # the app: http://localhost:8080
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    # Not published to the host - only reachable through nginx at /api.
+    environment:
+      EMAIL_TRANSPORT: smtp
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      FEATURED_PRODUCT_IDS: ${FEATURED_PRODUCT_IDS:-11,3,18,5,19}
+      SALES_INBOX: ${SALES_INBOX:-sales@catalogue.local}
+    depends_on:
+      - mailpit
+
+  # Local stand-in for the sales inbox. Catches every email the backend sends.
+  mailpit:
+    image: axllent/mailpit:v1.33
+    ports:
+      - "8025:8025" # inbox web UI: http://localhost:8025
+      - "1025:1025" # SMTP, so a backend run with npm can send here too
