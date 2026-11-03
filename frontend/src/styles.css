@@ -1,0 +1,235 @@
+/*
+  Look and feel is still being designed, so every colour, font and spacing value
+  lives in these variables. Re-skinning should mostly mean editing this block.
+*/
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f4;
+  --color-text: #1c1917;
+  --color-muted: #6b6461;
+  --color-primary: #1d4ed8;
+  --color-primary-text: #ffffff;
+  --color-border: #e7e5e4;
+  --color-error: #b91c1c;
+  --color-success-bg: #dcfce7;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 8px;
+  --space: 1rem;
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 var(--space);
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: calc(var(--space) * 2) 0 var(--space);
+}
+
+button {
+  font: inherit;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+input,
+textarea {
+  font: inherit;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+/* Layout */
+.header {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space) 0;
+}
+
+/* Header rows and page content share the same width and side padding so they line up. */
+.header__top,
+.header__nav,
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+.header__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space);
+}
+
+.header__brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+  margin-top: var(--space);
+  text-transform: capitalize;
+}
+
+.header__nav a {
+  text-decoration: none;
+  color: var(--color-muted);
+}
+
+.header__nav a.active {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 480px;
+}
+
+.main {
+  padding-top: var(--space);
+  padding-bottom: calc(var(--space) * 2);
+}
+
+/* Products */
+.product-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space);
+}
+
+.product-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  height: 100%;
+  padding: var(--space);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+.product-tile:hover {
+  border-color: var(--color-primary);
+}
+
+.product-tile img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.product-tile__title {
+  flex: 1;
+}
+
+.product-tile__price,
+.product-detail__price {
+  font-weight: 700;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 2fr;
+  gap: calc(var(--space) * 2);
+}
+
+.product-detail img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.product-detail__price {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enquiry */
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 480px;
+  padding: var(--space);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+}
+
+.enquiry-form h2 {
+  margin: 0;
+}
+
+.enquiry-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.enquiry-form button {
+  align-self: flex-start;
+}
+
+.thank-you {
+  padding: var(--space);
+  background: var(--color-success-bg);
+  border-radius: var(--radius);
+}
